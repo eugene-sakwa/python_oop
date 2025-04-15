@@ -7,7 +7,7 @@ class Item:
     def __init__(self, name: str, price: float, quantity = 0):
         # Run validation to the received arguments
         assert price >= 0, f'Price {price} is not greater than or equal to 0'
-        assert quantity >= 0, f' Quantity {quantity} is not greate than or equal to 0'
+        assert quantity >= 0, f' Quantity {quantity} is not greater than or equal to 0'
         
         # Assign to self object
         self.name = name
@@ -30,12 +30,18 @@ class Item:
             items = list(reader)
         
         for item in items:
-            print( item)
+            Item(
+                name = item.get('name'),
+                price = float(item.get('price')),
+                quantity = int(item.get('quantity'))
+
+            )
 
     def __repr__(self):
-        return f"Item('{self.name}', '{self.price}', '{self.quantity})"
+        return f"Item('{self.name}', '{self.price}', '{self.quantity}')"
 
 
 
 
 Item.instantiate_from_csv()
+print(Item.all)

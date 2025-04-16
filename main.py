@@ -48,10 +48,25 @@ class Item:
             return False
 
     def __repr__(self):
-        return f"Item('{self.name}', '{self.price}', '{self.quantity}')"
+        return f"{self.__class__.__name__}('{self.name}', '{self.price}', '{self.quantity}')"
+
+class Phone(Item):
+    def __init__(self, name: str, price: float, quantity = 0, broken_phones = 0):
+        # Call super function to have acess to all attributes and methods
+        super().__init__(
+            name, price, quantity
+        )
+
+        # Run validation to the received arguments
+        assert broken_phones >= 0, f'Broken phones {broken_phones} is not greater than or equal to 0'
+
+        # Assign to self object
+        self.broken_phones  = broken_phones
 
 
 
-
-# Item.instantiate_from_csv()
-# print(Item.all)
+phone1 = Phone( 'jscPhonev10', 500, 5 )
+phone1.calculate_total_price()
+phone2 = Phone( 'jscPhonev20', 700, 5 )
+print(Item.all)
+print(Phone.all)

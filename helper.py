@@ -10,3 +10,9 @@ class Item:
     def instantiate_from_something(cls):
         # This should also do something that has a relationship with the class, but usually, those are used to manipulate different structures of data to instantiate object, like we have done with CSV.
         pass
+
+
+
+
+    # eugene
+    # Barcelona2024!SSS
